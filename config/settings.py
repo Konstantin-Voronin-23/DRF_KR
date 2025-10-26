@@ -5,8 +5,6 @@ from pathlib import Path
 from celery.schedules import crontab
 from dotenv import load_dotenv
 
-from pathlib import Path
-
 load_dotenv(override=True)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -168,4 +166,9 @@ SPECTACULAR_SETTINGS = {
 CACHE_ENABLED = True
 
 if CACHE_ENABLED:
-    CACHES = {"default": {"BACKEND": "django.core.cache.backends.redis.RedisCache", "REDIS_URL": os.getenv("REDIS_URL")}}
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "REDIS_URL": os.getenv("REDIS_URL"),
+        }
+    }
