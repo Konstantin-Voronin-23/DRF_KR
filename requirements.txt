@@ -181,3 +181,7 @@ docker==7.1.0
 gunicorn==23.0.0
 django-celery-beat==2.8.1
 psycopg2-binary==2.9.10
+flake8==7.3.0
+black==25.9.0
+isort==7.0.0
+mypy==1.18.2
