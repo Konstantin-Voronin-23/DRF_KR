@@ -4,6 +4,7 @@ from pathlib import Path
 
 from celery.schedules import crontab
 from dotenv import load_dotenv
+import sys
 
 load_dotenv(override=True)
 
@@ -172,5 +173,13 @@ if CACHE_ENABLED:
         "default": {
             "BACKEND": "django.core.cache.backends.redis.RedisCache",
             "LOCATION": REDIS_URL.replace("/0", "/1"),
+        }
+    }
+
+if "test" in sys.argv:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "test_db_sqlite3",
         }
     }
